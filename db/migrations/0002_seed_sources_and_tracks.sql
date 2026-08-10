@@ -1,0 +1,53 @@
+INSERT INTO sources (key, name, base_url, enabled, adapter_version)
+VALUES
+    ('nysdol_apprenticeships', 'NYSDOL Apprenticeships',
+     'https://dol.ny.gov/apprenticeship/apprenticeship-announcements', true, 'legacy-1'),
+    ('nyc_jobs', 'NYC City Jobs', 'https://cityjobs.nyc.gov/jobs', false, NULL),
+    ('mta', 'Metropolitan Transportation Authority',
+     'https://careers.mta.org/search/jobs', false, NULL),
+    ('port_authority', 'Port Authority of New York and New Jersey',
+     'https://www.jointheportauthority.com/jobs/search', false, NULL),
+    ('newyork_presbyterian', 'NewYork-Presbyterian',
+     'https://careers.nyp.org/search-jobs', false, NULL),
+    ('statejobsny', 'StateJobsNY',
+     'https://statejobs.ny.gov/public/search.cfm', false, NULL),
+    ('amtrak', 'Amtrak', 'https://careers.amtrak.com/', false, NULL),
+    ('northwell', 'Northwell Health',
+     'https://jobs.northwell.edu/job-search-results/', false, NULL),
+    ('resorts_world_nyc', 'Resorts World New York City',
+     'https://rwnewyork.com/careers/', false, NULL),
+    ('cuny', 'City University of New York',
+     'https://www.cuny.edu/employment/search-jobs/', false, NULL)
+ON CONFLICT (key) DO NOTHING;
+
+INSERT INTO tracks (slug, name, description, sort_order)
+VALUES
+    ('administrative-office-support', 'Administrative and office support',
+     'Clerical, scheduling, records, human resources support, and general office operations.', 10),
+    ('it-data-cybersecurity', 'IT, data, and cybersecurity',
+     'Software, systems, technical support, networks, data, analytics, and information security.', 20),
+    ('transportation-logistics-fleet', 'Transportation, logistics, and fleet',
+     'Driving, transit and rail operations, fleet maintenance, warehousing, dispatch, and logistics.', 30),
+    ('construction-skilled-trades-facilities', 'Construction, skilled trades, and facilities',
+     'Construction, electrical, mechanical, building maintenance, custodial, and facilities work.', 40),
+    ('customer-service', 'Customer service',
+     'Customer-facing assistance, contact centers, reception, ticketing, and service coordination.', 50),
+    ('communications-marketing', 'Communications and marketing',
+     'Public information, writing, media, marketing, design, outreach, and communications.', 60),
+    ('clinical-patient-support', 'Clinical and patient support',
+     'Patient care and allied clinical support roles, excluding independent qualification claims.', 70),
+    ('education-student-services', 'Education and student services',
+     'Teaching support, academic operations, student advising, libraries, and campus services.', 80),
+    ('finance-purchasing-accounting', 'Finance, purchasing, and accounting',
+     'Accounting, budgeting, payroll, audit, procurement, purchasing, and financial operations.', 90),
+    ('food-hospitality-tourism', 'Food service, hospitality, and tourism',
+     'Food preparation and service, hotels, gaming, events, guest services, and tourism.', 100),
+    ('social-community-services', 'Social services and community support',
+     'Case support, community programs, benefits navigation, counseling support, and outreach.', 110),
+    ('public-safety-security', 'Public safety and security',
+     'Security, emergency operations, inspections, enforcement, and public-safety support.', 120),
+    ('management-supervision', 'Management and supervision',
+     'People, program, project, and operational leadership responsibilities.', 130),
+    ('apprenticeships-entry-level-training', 'Apprenticeships and entry-level training',
+     'Apprenticeships, internships, trainee roles, and opportunities designed for entry-level development.', 140)
+ON CONFLICT (slug) DO NOTHING;

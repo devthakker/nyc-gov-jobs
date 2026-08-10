@@ -1,0 +1,11 @@
+.git
+.env
+__pycache__
+*.py[cod]
+nysdol-export.json
+nysdol-export.csv
+newsletter-preview.html
+**/node_modules
+**/dist
+**/coverage
+*.log
